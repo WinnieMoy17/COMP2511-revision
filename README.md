@@ -2,7 +2,7 @@
 
 ## Short Answer
 - [Short Answer Questions](/spec/ShortAnswer.md)
-- [Short Answer Solutions](/spec/ShortAnswer.md)
+- [Short Answer Solutions](/spec/ShortAnswerSolutions.md)
 
 ## Revision Exercises
 
