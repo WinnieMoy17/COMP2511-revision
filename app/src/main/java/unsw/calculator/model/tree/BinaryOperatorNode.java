@@ -1,9 +1,11 @@
 package unsw.calculator.model.tree;
 
+import unsw.calculator.model.Visitor;
+
 /*
  * Tree node that contains two children
  */
-public abstract class BinaryOperatorNode implements TreeNode  {
+public abstract class BinaryOperatorNode implements TreeNode {
 
     private TreeNode left, right;
 
@@ -21,34 +23,46 @@ public abstract class BinaryOperatorNode implements TreeNode  {
         return this.left;
     }
 
-    public TreeNode getRight()  {
+    public TreeNode getRight() {
         return this.right;
     }
 
-    public void infixPrint()  {
-        System.out.print("(");
+    // public void infixPrint() {
+    // System.out.print("(");
 
-        if (this.left != null) {
-            this.left.infixPrint();
-        }
+    // if (this.left != null) {
+    // this.left.infixPrint();
+    // }
 
-        System.out.print(" " + getLabel() + " ");
+    // System.out.print(" " + getLabel() + " ");
 
-        if (this.right != null) {
-            this.right.infixPrint();
-        }
-        
-        System.out.print(")");
-    }
+    // if (this.right != null) {
+    // this.right.infixPrint();
+    // }
+
+    // System.out.print(")");
+    // }
 
     /**
      * Apply this operator (+,-,*,/ etc.) to the given operands
      */
     public abstract int compute(int a, int b);
-    
+
     /**
      * Returns a textual representation of the node.
      */
     public abstract String getLabel();
+
+    public void acceptLeft(Visitor v) {
+        if (left != null) {
+            left.accept(v);
+        }
+    }
+
+    public void acceptRight(Visitor v) {
+        if (right != null) {
+            right.accept(v);
+        }
+    }
 
 }

@@ -2,7 +2,7 @@ package unsw.shipping;
 
 public class Decorator extends Product {
 
-    private Product product;
+    protected Product product;
 
     public Decorator(Product product) {
         this.product = product;
