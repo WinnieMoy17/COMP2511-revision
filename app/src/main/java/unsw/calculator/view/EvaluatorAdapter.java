@@ -2,8 +2,6 @@ package unsw.calculator.view;
 
 import unsw.calculator.model.EvaluatorVisitor;
 import unsw.calculator.model.Parser;
-import unsw.calculator.model.PostFixPrintVisitor;
-import unsw.calculator.model.Visitor;
 import unsw.calculator.model.tree.TreeNode;
 
 public class EvaluatorAdapter implements Evaluator {

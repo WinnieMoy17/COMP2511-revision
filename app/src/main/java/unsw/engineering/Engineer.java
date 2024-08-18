@@ -9,10 +9,11 @@ public class Engineer extends Employee {
         this.bonus = bonus;
     }
 
+    @Override
     public double calculateSalary() {
         double totalSal;
         totalSal = super.getBaseSalary() + bonus
-                 + super.calculateParkingFringeBenefits() - super.calculateTax();
+                + super.calculateParkingFringeBenefits() - super.calculateTax();
         return totalSal;
     }
 }
