@@ -1,0 +1,17 @@
+Code Smells
+- follow method -- deep nested for loops and if statements
+- violation of srp
+
+- refused bequest
+- duplicated Code
+- excessive coupling
+- lack of encapsulation
+
+encapsulate follow method -> make it into a follow person method in the person class
+
+Methods such as follow person, getPopularity, should all be done within the person class, as it concerns one person
+This makes the code more encapsulated and looser coupled.
+
+The waste book controller is also doing too much -- split off the responsibilities into another class maybe
+
+-> introducing a social network class that centralises the management of people, reducing responsibilites from weate book controller.

@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Person<P extends Comparable<P>> {
-    
+
     private List<Person<P>> following = new ArrayList<Person<P>>();
     private List<Person<P>> friends = new ArrayList<Person<P>>();
     private P id;
@@ -24,13 +24,38 @@ public class Person<P extends Comparable<P>> {
     public List<Person<P>> getFriends() {
         return friends;
     }
-    
+
+    public int getNumFriends() {
+        return friends.size();
+    }
+
+    public int getPopularity(List<Person<P>> people) {
+        int popularity = 0;
+        for (Person<P> other : people) {
+            if (other.isFollowing(this)) {
+                popularity++;
+            }
+        }
+        return popularity;
+    }
+
     public boolean isFollowing(Person<P> person) {
         return following.contains(person);
     }
 
-
     public void addFriend(Person<P> person) {
         friends.add(person);
+    }
+
+    public boolean followPerson(Person<P> person) {
+        if (person == this || following.contains(person)) {
+            return false;
+        }
+        following.add(person);
+        if (person.isFollowing(this)) {
+            addFriend(person);
+            person.addFriend(this);
+        }
+        return true;
     }
 }
