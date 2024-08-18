@@ -12,13 +12,13 @@ import javax.swing.JTextField;
 public class CalculatorInterface extends JFrame {
 
     private JTextField field;
-  
+
     /**
      * Creates a new CalculatorInterface object setting
      * up the calculator buttons and placing them appropriately
      * and making the calculator visible.
      */
-    public CalculatorInterface()  {
+    public CalculatorInterface() {
         super("Calculator");
 
         // Display results, integers etc.
@@ -101,26 +101,26 @@ public class CalculatorInterface extends JFrame {
         this.pack();
         this.setVisible(true);
     }
-    
+
     /**
      * Accesses the JTextField display of the calculator interface
      *
      * @return the JTextField display of the the calculator interface
      */
-    public JTextField getField()  {
+    public JTextField getField() {
         return this.field;
     }
-  
+
     /**
      * A Factory Method that returns a dummy evaluator at the moment
      *
      * @return a new DummyEvaluator object
      */
-    public Evaluator getEvaluator(){
-        return new DummyEvaluator();
+    public Evaluator getEvaluator() {
+        return new EvaluatorAdapter();
     }
-  
-    public static void main(String[] args)  {
+
+    public static void main(String[] args) {
         CalculatorInterface calc = new CalculatorInterface();
-    }  
+    }
 }
